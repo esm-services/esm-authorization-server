@@ -1,0 +1,12 @@
+server:
+  port: 8888
+  context-path: /services
+security:
+  oauth2:
+    client:
+      client-id: employee-service
+      client-secret: employee-service-secret
+      authorized-grant-types:
+        authorization_code,refresh_token,password,client_credentials
+      scope:
+        employee_read,employee_write,employee_trust
