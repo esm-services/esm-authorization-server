@@ -4,8 +4,8 @@ server:
 security:
   oauth2:
     client:
-      client-id: employee-service
-      client-secret: employee-service-secret
+      client-id: esm-command-line-interface
+      client-secret: esm-command-line-interface-secret
       authorized-grant-types:
         authorization_code,refresh_token,password,client_credentials
       scope:

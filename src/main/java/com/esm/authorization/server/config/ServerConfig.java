@@ -9,8 +9,10 @@ public class ServerConfig extends GlobalAuthenticationConfigurerAdapter {
 
 	@Override
 	public void init(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("durgesh").password("durgesh").roles("USER", "ADMIN", "OPERATOR").and()
-				.withUser("vivek").password("vivek").roles("USER");
+		auth.inMemoryAuthentication()
+		.withUser("durgesh").password("durgesh").roles("USER", "ADMIN", "OPERATOR").and()
+		.withUser("vivek").password("vivek").roles("USER").and()
+		.withUser("anup").password("anup").roles("OPERATOR");
 	}
 
 }
