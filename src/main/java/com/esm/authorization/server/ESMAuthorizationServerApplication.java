@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableAuthorizationServer
 @EnableResourceServer
 @RestController
-public class EsmAuthorizationServerApplication {
+public class ESMAuthorizationServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EsmAuthorizationServerApplication.class, args);
+		SpringApplication.run(ESMAuthorizationServerApplication.class, args);
 	}
 	
 	@RequestMapping("/user")
