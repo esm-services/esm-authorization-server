@@ -1,12 +1,22 @@
 server:
-  port: 8888
-  context-path: /services
-security:
-  oauth2:
-    client:
-      client-id: esm-command-line-interface
-      client-secret: esm-command-line-interface-secret
-      authorized-grant-types:
-        authorization_code,refresh_token,password,client_credentials
-      scope:
-        employee_read,employee_write,employee_trust
+  port: 9999
+  context-path: /oauth2/services
+spring:
+  application:
+    name: authorizationServer
+  datasource:
+    url: jdbc:postgresql://localhost:5432/AUTH_SERVER_DB
+    username: rdurgesh
+    password: rdurgesh
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    zipkin: 
+    base-url: http://localhost:7777
+  sleuth:
+    sampler:
+      percentage: 1.0
+logging:
+  level:
+    org.springframework.security: DEBUG
