@@ -1,6 +1,6 @@
 server:
   port: 9999
-  context-path: /oauth2/services
+  context-path: /spring-security-oauth-server
 spring:
   application:
     name: authorizationServer
