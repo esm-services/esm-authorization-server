@@ -18,6 +18,36 @@ GRANT ALL ON DATABASE "AUTH_SERVER_DB" TO rdurgesh;
 
 GRANT TEMPORARY, CONNECT ON DATABASE "AUTH_SERVER_DB" TO PUBLIC;
 --------------------------------------------------------------------------
+CREATE DATABASE "ACCOUNT_DB"
+    WITH 
+    OWNER = rdurgesh
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = 2;
+
+COMMENT ON DATABASE "ACCOUNT_DB" IS 'DB for account data';
+
+GRANT ALL ON DATABASE "ACCOUNT_DB" TO rdurgesh;
+
+GRANT TEMPORARY, CONNECT ON DATABASE "ACCOUNT_DB" TO PUBLIC;
+--------------------------------------------------------------------------
+CREATE DATABASE "EMLOYEE_DB"
+    WITH 
+    OWNER = rdurgesh
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = 2;
+
+COMMENT ON DATABASE "EMLOYEE_DB" IS 'DB for employee data';
+
+GRANT ALL ON DATABASE "EMLOYEE_DB" TO rdurgesh;
+
+GRANT TEMPORARY, CONNECT ON DATABASE "EMLOYEE_DB" TO PUBLIC;
+--------------------------------------------------------------------------
 
 drop table if exists oauth_client_details;
 create table oauth_client_details (
