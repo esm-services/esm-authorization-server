@@ -19,4 +19,6 @@ spring:
       percentage: 1.0
 logging:
   level:
-    org.springframework.security: DEBUG
+    org.springframework.web: ERROR
+    org.springframework.cloud.sleuth: ERROR
+    org.springframework.security: ERROR
