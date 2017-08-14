@@ -3,7 +3,7 @@ server:
   context-path: /spring-security-oauth-server
 spring:
   application:
-    name: authorizationServer
+    name: authorization-server
   datasource:
     url: jdbc:postgresql://localhost:5432/AUTH_SERVER_DB
     username: rdurgesh
