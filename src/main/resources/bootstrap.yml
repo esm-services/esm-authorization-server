@@ -8,5 +8,6 @@ spring:
       username: config-server
       password: config-server
       fail-fast: false
+      
 encrypt:
   key: ABCDEFGHIJKLMNOPQRSTUVWXYZ
