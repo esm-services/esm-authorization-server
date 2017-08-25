@@ -1,7 +1,10 @@
+server:
+  port: 9999
+  
 spring:
   profiles:
     active:
-    - prod
+    - dev
   cloud:
     config:
       uri: http://localhost:8888
