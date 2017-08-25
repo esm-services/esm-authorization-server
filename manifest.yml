@@ -1,6 +1,0 @@
----
-applications:
-- name: authorization-server
-  memory: 1024M
-  instances: 1
-  random-route: true
