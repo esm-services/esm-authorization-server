@@ -1,4 +1,7 @@
----  
+---
+server:
+  port: 9999
+    
 spring:
   application:
     name: authorization-server
@@ -10,6 +13,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
       
 logging:
   level:

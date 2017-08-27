@@ -76,14 +76,23 @@
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Testing Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Test Spring Boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- Testing Consul -->
+		<dependency>
+			<groupId>com.pszymczyk.consul</groupId>
+			<artifactId>embedded-consul</artifactId>
+			<version>0.3.4</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
