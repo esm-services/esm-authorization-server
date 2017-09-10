@@ -1,4 +1,4 @@
-package com.esm.authorization.server.service;
+package com.esm.authorization.server.services;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -8,7 +8,7 @@ public interface UserService extends UserDetailsService {
 
 	public User findUserByUsername(String username);
 
-	public void createNewUser(User user);
+	public User createNewUser(User user);
 	
 	public long count();
 }

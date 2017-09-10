@@ -1,4 +1,4 @@
-package com.esm.authorization.server.service;
+package com.esm.authorization.server.services;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -36,9 +36,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void createNewUser(User user) {
+	public User createNewUser(User user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		userRepository.save(user);
+		return userRepository.save(user);
 	}
 
 	@Override

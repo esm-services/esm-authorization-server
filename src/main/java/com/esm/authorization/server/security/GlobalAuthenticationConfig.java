@@ -11,7 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.esm.authorization.server.domain.Role;
 import com.esm.authorization.server.domain.User;
-import com.esm.authorization.server.service.UserService;
+import com.esm.authorization.server.services.UserService;
 
 @Configuration
 public class GlobalAuthenticationConfig extends GlobalAuthenticationConfigurerAdapter {

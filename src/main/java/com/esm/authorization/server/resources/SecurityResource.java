@@ -1,4 +1,4 @@
-package com.esm.authorization.server.resource;
+package com.esm.authorization.server.resources;
 
 import java.security.Principal;
 
