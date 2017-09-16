@@ -14,7 +14,7 @@ spring:
       
 logging:
   level:
-    root: INFO 
+    #ROOT: INFO 
     org.springframework.web: INFO
     org.springframework.cloud.sleuth: INFO
     org.springframework.security: INFO

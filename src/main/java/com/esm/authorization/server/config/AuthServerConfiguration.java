@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.ClientRegistrationService;
 import org.springframework.security.oauth2.provider.approval.ApprovalStore;
 import org.springframework.security.oauth2.provider.approval.JdbcApprovalStore;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
@@ -34,6 +35,11 @@ public class AuthServerConfiguration {
 	@Bean
 	protected AuthorizationCodeServices authorizationCodeServices() {
 		return new JdbcAuthorizationCodeServices(dataSource);
+	}
+
+	@Bean
+	public ClientRegistrationService clientRegistrationService() {
+		return new JdbcClientDetailsService(dataSource);
 	}
 
 	@Bean

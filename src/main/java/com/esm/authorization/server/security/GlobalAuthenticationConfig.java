@@ -13,17 +13,15 @@ import com.esm.authorization.server.domain.Role;
 import com.esm.authorization.server.domain.User;
 import com.esm.authorization.server.services.UserService;
 
+import lombok.AllArgsConstructor;
+
 @Configuration
+@AllArgsConstructor
 public class GlobalAuthenticationConfig extends GlobalAuthenticationConfigurerAdapter {
 
 	private final UserService userService;
 
 	private final BCryptPasswordEncoder passwordEncoder;
-
-	public GlobalAuthenticationConfig(UserService userService, BCryptPasswordEncoder passwordEncoder) {
-		this.userService = userService;
-		this.passwordEncoder = passwordEncoder;
-	}
 
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
