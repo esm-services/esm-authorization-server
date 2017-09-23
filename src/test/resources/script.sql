@@ -67,7 +67,7 @@ create table oauth_client_details (
 INSERT INTO oauth_client_details(client_id,resource_ids,client_secret,scope,authorized_grant_types,
 web_server_redirect_uri,authorities,access_token_validity,refresh_token_validity,additional_information,
 autoapprove)VALUES('commandlineinterface','rest_api','commandlineinterface','read,write','password,refresh_token',
-'http://localhost:8080/home','ROLE_CLIENT,ROLE_TRUSTED_CLIENT',120,600,'trusted','yes');
+'http://localhost:8080/home','ROLE_CLIENT,ROLE_TRUSTED_CLIENT',120,600,'{"info":"trusted"}','yes');
 
 ALTER TABLE oauth_client_details DROP COLUMN additional_information;
 ALTER TABLE oauth_client_details ADD COLUMN additional_information VARCHAR(50);
