@@ -1,10 +1,9 @@
----
 spring:
   application:
     name: authorization-server
   profiles:
     active:
-    - dev
+    - prod
   cloud:
     config:
       discovery:
