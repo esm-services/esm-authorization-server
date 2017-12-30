@@ -1,8 +1,9 @@
 package com.esm.authorization.server.resources;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
+
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,8 +22,8 @@ public class UserResource {
 
 	private final UserService userService;
 
-	@PostMapping(value = "/user", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@PreAuthorize("#oauth2.hasScope('write') and hasAuthority('ROLE_ADMIN')")
+	@PostMapping(value = "/user", consumes = APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<User> createNewUser(@RequestBody User user) {
 		User data = userService.createNewUser(user);
 		return new ResponseEntity<>(data, HttpStatus.CREATED);

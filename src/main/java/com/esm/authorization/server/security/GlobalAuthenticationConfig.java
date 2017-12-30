@@ -1,6 +1,7 @@
 package com.esm.authorization.server.security;
 
-import java.util.Arrays;
+import static java.util.Arrays.asList;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,7 +32,7 @@ public class GlobalAuthenticationConfig extends GlobalAuthenticationConfigurerAd
 	@Override
 	public void init(AuthenticationManagerBuilder auth) throws Exception {
 		if (userService.count() == 0) {
-			Set<Role> role = new HashSet<Role>(Arrays.asList(new Role("ACTUATOR")));
+			Set<Role> role = new HashSet<Role>(asList(new Role("ACTUATOR")));
 			User user = new User("user", "password", true, role);
 			userService.createNewUser(user);
 		}
