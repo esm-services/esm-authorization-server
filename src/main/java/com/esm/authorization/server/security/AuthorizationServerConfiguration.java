@@ -12,7 +12,9 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Configuration
 @AllArgsConstructor
 @EnableAuthorizationServer
@@ -26,16 +28,19 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+		log.info("Calling AuthorizationServerEndpointsConfigurer =>");
 		endpoints.tokenStore(tokenStore).authenticationManager(authenticationManager);
 	}
 
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+		log.info("Calling AuthorizationServerSecurityConfigurer");
 		security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
 	}
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+		log.info("Calling ClientDetailsServiceConfigurer");
 		clients.jdbc(dataSource);
 	}
 

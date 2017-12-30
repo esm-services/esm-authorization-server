@@ -1,9 +1,9 @@
 package com.esm.authorization.server.resources;
 
+import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +26,7 @@ public class UserResource {
 	@PostMapping(value = "/user", consumes = APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<User> createNewUser(@RequestBody User user) {
 		User data = userService.createNewUser(user);
-		return new ResponseEntity<>(data, HttpStatus.CREATED);
+		return new ResponseEntity<>(data, CREATED);
 	}
 
 }
