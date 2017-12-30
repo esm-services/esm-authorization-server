@@ -1,5 +1,7 @@
 package com.esm.authorization.server.services;
 
+import java.util.Optional;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,16 +25,16 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByUsername(username);
-		if (user == null) {
-			throw new UsernameNotFoundException("UserName " + "'" + username + "'" + " not found");
-		}
-		return new CustomUserDetails(user);
+		Optional<User> user = userRepository.findByUsername(username);
+		user.orElseThrow(() -> new UsernameNotFoundException("UserName " + "'" + username + "'" + " not found"));
+		return user.map(CustomUserDetails::new).get();
 	}
 
 	@Override
 	public User findUserByUsername(String username) {
-		return userRepository.findByUsername(username);
+		Optional<User> user = userRepository.findByUsername(username);
+		user.orElseThrow(() -> new UsernameNotFoundException("UserName " + "'" + username + "'" + " not found"));
+		return user.get();
 	}
 
 	@Override

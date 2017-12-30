@@ -1,9 +1,8 @@
 package com.esm.authorization.server.domain;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,15 +28,7 @@ public class CustomUserDetails implements UserDetails {
 	}
 
 	private Collection<? extends GrantedAuthority> translate(Set<Role> roles) {
-		List<GrantedAuthority> authorities = new ArrayList<>();
-		for (Role role : roles) {
-			String name = role.getRole().toUpperCase();
-			if (!name.startsWith("ROLE_")) {
-				name = "ROLE_" + name;
-			}
-			authorities.add(new SimpleGrantedAuthority(name));
-		}
-		return authorities;
+		return roles.parallelStream().map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRole().toUpperCase())).collect(Collectors.toList());
 	}
 
 	@Override
